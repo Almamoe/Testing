@@ -1,0 +1,215 @@
+﻿:root {
+  --leaf-1: #18361f;
+  --leaf-2: #254b2a;
+  --leaf-3: #3e6d3f;
+  --sun: #d6b15a;
+  --mist: #dbecc8;
+  --panel: rgba(17, 34, 19, 0.78);
+  --line: rgba(214, 226, 200, 0.16);
+  --danger: #ef5d5d;
+  --safe: #85d56a;
+  --boss: #c95179;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  color: #f4f8ee;
+  background: radial-gradient(circle at 25% 20%, #44693f 0%, #1d311e 45%, #0d180f 100%);
+  overflow-x: hidden;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 75% 10%, rgba(214, 177, 90, 0.18), transparent 30%),
+    radial-gradient(circle at 20% 80%, rgba(130, 196, 133, 0.12), transparent 28%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.012) 0 10px, rgba(0, 0, 0, 0.016) 10px 20px);
+  pointer-events: none;
+}
+
+.game-shell {
+  width: min(1040px, 96vw);
+  margin: 1rem auto 2rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(20, 41, 20, 0.9), rgba(9, 20, 11, 0.92));
+  backdrop-filter: blur(2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  position: relative;
+  z-index: 1;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.03em;
+  font-size: clamp(1.3rem, 3vw, 2.1rem);
+}
+
+.brand p {
+  margin: 0.3rem 0 0;
+  opacity: 0.9;
+}
+
+.stats {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  min-width: 95px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.4rem 0.7rem;
+}
+
+.stat-card span {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.82;
+}
+
+.stat-card strong {
+  font-size: 1.2rem;
+}
+
+.hunger-panel {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.hunger-label span {
+  font-weight: 900;
+  display: block;
+}
+
+.hunger-label small {
+  color: var(--mist);
+}
+
+.meter {
+  height: 18px;
+  background: rgba(9, 18, 9, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+#hungerBar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #9fdd62, #6ecb5f);
+  transition: width 130ms linear;
+}
+
+.arena-wrap {
+  margin-top: 1rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  position: relative;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #111;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 10, 6, 0.68);
+  display: grid;
+  place-items: center;
+}
+
+.panel {
+  max-width: 540px;
+  margin: 1rem;
+  background: rgba(18, 30, 18, 0.92);
+  border: 1px solid rgba(225, 235, 214, 0.26);
+  border-radius: 18px;
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.panel h2 {
+  margin: 0 0 0.5rem;
+  font-family: 'Cinzel', serif;
+}
+
+.panel p {
+  margin: 0.35rem 0;
+}
+
+button {
+  margin-top: 0.9rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-weight: 900;
+  color: #12320f;
+  background: linear-gradient(90deg, #b6e984, #5fd080);
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.06);
+}
+
+.controls {
+  margin-top: 0.85rem;
+  opacity: 0.94;
+  font-size: 0.92rem;
+}
+
+.controls p {
+  margin: 0.25rem 0;
+}
+
+kbd {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 0.05rem 0.35rem;
+  background: rgba(7, 17, 7, 0.9);
+}
+
+@media (max-width: 760px) {
+  .hunger-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    width: 100%;
+  }
+
+  .stat-card {
+    flex: 1;
+  }
+}

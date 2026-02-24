@@ -1,0 +1,62 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forest Hunger Snake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <main class="game-shell">
+    <header class="hud">
+      <div class="brand">
+        <h1>Forest Hunger Snake</h1>
+        <p>Hunt, survive, grow, and defeat the Serpent King.</p>
+      </div>
+      <div class="stats">
+        <div class="stat-card">
+          <span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>Length</span>
+          <strong id="length">3</strong>
+        </div>
+        <div class="stat-card">
+          <span>Boss HP</span>
+          <strong id="bossHp">--</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="hunger-panel">
+      <div class="hunger-label">
+        <span>Hunger</span>
+        <small id="hungerText">Safe</small>
+      </div>
+      <div class="meter">
+        <div id="hungerBar"></div>
+      </div>
+    </section>
+
+    <section class="arena-wrap">
+      <canvas id="game" width="900" height="600" aria-label="Forest Snake Game"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="panel" id="panel"></div>
+      </div>
+    </section>
+
+    <footer class="controls">
+      <p><kbd>WASD</kbd> / <kbd>Arrow Keys</kbd> to move</p>
+      <p>Eat food before hunger reaches zero. Reach length 22 to awaken the Serpent King.</p>
+      <p>In boss phase, collect glowing spirit fruits, then strike the boss head.</p>
+    </footer>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
